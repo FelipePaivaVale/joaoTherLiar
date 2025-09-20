@@ -2,7 +2,7 @@ class MensagemsController < ApplicationController
   before_action :set_mensagem, only: [:show, :edit, :update, :destroy]
 
   def index
-    @mensagens = Mensagem.all.order(created_at: :desc)
+    @mensagems = Mensagem.all.order(created_at: :desc)
   end
 
   def show
