@@ -1,0 +1,25 @@
+<div class="container">
+  <h1 class="text-center my-4">Mural de Mentiras</h1>
+
+  <div class="text-center mb-4">
+    <%= link_to 'Nova Mentira', new_mensagem_path, class: 'btn btn-primary' %>
+  </div>
+
+  <div class="row">
+    <% @mensagens.each do |mensagem| %>
+      <div class="col-md-6 col-lg-4 mb-4">
+        <div class="card h-100">
+          <div class="card-body">
+            <h5 class="card-title"><%= mensagem.titulo %></h5>
+            <p class="card-text"><%= mensagem.conteudo %></p>
+            <p class="card-text">
+              <small class="text-muted">
+                <%= time_ago_in_words(mensagem.created_at) %> atrás
+              </small>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

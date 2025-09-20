@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h1 class="text-center my-4">
+        <%= action_name == 'new' ? 'Nova mentira' : 'Editar mentira' %>
+      </h1>
+
+      <%= form_with(model: @mensagem, local: true) do |form| %>
+        <% if @mensagem.errors.any? %>
+          <div class="alert alert-danger">
+            <h4><%= pluralize(@mensagem.errors.count, "erro") %> impediram esta mentira de ser salva:</h4>
+            <ul>
+              <% @mensagem.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+
+        <div class="form-group">
+          <%= form.label :titulo %>
+          <%= form.text_field :titulo, class: 'form-control', required: true %>
+        </div>
+
+        <div class="form-group">
+          <%= form.label :conteudo %>
+          <%= form.text_area :conteudo, class: 'form-control', rows: 5, required: true %>
+        </div>
+
+        <div class="form-group text-center">
+          <%= form.submit 'Salvar mentira', class: 'btn btn-primary' %>
+          <%= link_to 'Cancelar', root_path, class: 'btn btn-secondary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
