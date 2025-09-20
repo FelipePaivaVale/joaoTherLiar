@@ -81,9 +81,11 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: joaotheliar_production
-    username: joaotheliar
-    password: <%= ENV["JOAOTHELIAR_DATABASE_PASSWORD"] %>
+    database: postgres_x77q
+    username: postgres_x77q_user
+    password: fMSocX0c16LvGIjqEYF63vNhUiKdBmUo
+    port: 5432
+    host: dpg-d37fne1r0fns739fdg5g-a
   cache:
     <<: *primary_production
     database: joaotheliar_production_cache
